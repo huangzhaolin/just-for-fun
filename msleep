@@ -1,0 +1,23 @@
+#! /bin/bash
+
+if [ $# -ne 1 ]
+then
+cat << EOF 
+这个工具只包含一个参数，需要sleep的毫秒数
+例如:sleep 100 sleep 100毫秒
+EOF
+exit 1
+fi
+
+millisecond=$1
+startTime=$(date "+%s%N")
+endTime=$(date "+%s%N")
+sleepTime=0
+
+while [ $sleepTime -lt $millisecond ]
+do
+((sleepTime=($endTime-$startTime)/1000000))
+endTime=$(date "+%s%N")
+done
+
+exit 0 

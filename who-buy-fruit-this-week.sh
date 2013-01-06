@@ -1,0 +1,17 @@
+#! /bin/bash
+declare -A buyers
+buyers=([≥Ø¡ÿ]=10 [∆Ω÷Œ]=30 [”ƒ««]=10 [÷¡≥œ]=20 [ÀŒ“‚]=10 [±±∑Â]=10 [¿Îœ„]=10 [º™…≠]=10 [≥Ã·∞]=10 [¡¡¡¡]=10)
+selector=""
+index=0
+sumSelector=0
+for buyer in ${!buyers[*]}
+do
+	buyerCounter=${buyers[$buyer]}
+	((sumSelector=$sumSelector+$buyerCounter))
+	for i in `seq $buyerCounter`
+	do
+		selector[((index++))]=$buyer
+	done
+done
+((random=$RANDOM%$sumSelector))
+echo ${selector[$random]} 
