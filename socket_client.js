@@ -10,6 +10,9 @@ socket_client.connect(65535,"localhost",function(){
 	// 	socket_client.write(data);
 	// });
 });
+socket_client.on('data',function(data){
+	console.log()data;
+})
 socket_client.on('close',function(){
 	console.log('close!');
 })
