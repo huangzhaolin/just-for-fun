@@ -14,19 +14,18 @@ def createClient():
 	tcp=socket(AF_INET,SOCK_STREAM)
 	tcp.connect(ADDR)
 	data=[]
-	while True:
-		try:
-			print 'Wating for data'
-			print 'starting send data:%s'%time()
-			output=open("/tmp/big.data","r")
-			for line in output:
-				tcp.send(line)
-			print 'ending send data:%s'%time()
-		except KeyboardInterrupt:
-			tcp.close()
-			exit()
-		except Exception,e:
-			print traceback.format_exc()
+	try:
+		print 'Wating for data'
+		print 'starting send data:%s'%time()
+		output=open("/tmp/big.data","r")
+		for line in output:
+			tcp.send(line)
+		print 'ending send data:%s'%time()
+	except KeyboardInterrupt:
+		tcp.close()
+		exit()
+	except Exception,e:
+		print traceback.format_exc()
 	#tcp.close()
 if __name__ == '__main__':
 	createServer()
