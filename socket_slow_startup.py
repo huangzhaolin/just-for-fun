@@ -32,6 +32,8 @@ def createServer():
 				#tcp.close()
 		except Exception,e:
 			print traceback.format_exc()
+		except KeyboardInterrupt:
+			tcp.close()
 	#tcp.close()
 if __name__ == '__main__':
 	createServer()
