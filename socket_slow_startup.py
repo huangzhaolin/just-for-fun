@@ -7,12 +7,12 @@ from time import ctime
 
 def createServer():
 	HOST=''
-	PORT=8888
+	PORT=65535
 	BUFSIZE=1024
 	ADDR=(HOST,PORT)
 	tcp=socket(AF_INET,SOCK_STREAM)
 	tcp.bind(ADDR)
-	tcp.listen(1)
+	tcp.listen(10)
 	while True:
 		try:
 			print 'Wating for data'
