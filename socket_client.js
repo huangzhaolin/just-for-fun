@@ -11,7 +11,7 @@ socket_client.connect(65535,"localhost",function(){
 	// });
 });
 socket_client.on('data',function(data){
-	console.log()data;
+	console.log(data);
 })
 socket_client.on('close',function(){
 	console.log('close!');
