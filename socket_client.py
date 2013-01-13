@@ -20,13 +20,14 @@ def createClient():
 		output=open("/tmp/big.data","r")
 		buffer=[]
 		count=0
-		for line in output:
-			buffer.append(line)
-			if len(buffer)==1000:
-				count=count+1
-				print "it's %s time send"%count
-				tcp.send(line)
-				buffer=[]
+		tcp.send("132242423432432432")
+#		for line in output:
+#			buffer.append(line)
+#			if len(buffer)==1000:
+#				count=count+1
+#				print "it's %s time send"%count
+#				tcp.send(line)
+#				buffer=[]
 				#tcp.recv(1024)
 		tcp.send(line)
 		#tcp.send(str(output.readlines(100000)))
