@@ -27,7 +27,7 @@ def createServer():
 				recevieData=remoteData.recv(BUFSIZE)
 				print recevieData
 				if (not recevieData) or len(data)>10:
-					print recevieData
+					print "im in %s"%recevieData
 					output.write(str(data))
 					data=[]
 					break
