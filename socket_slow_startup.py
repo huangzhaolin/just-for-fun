@@ -13,6 +13,7 @@ def createServer():
 	ADDR=(HOST,PORT)
 	tcp=socket(AF_INET,SOCK_STREAM)
 	tcp.bind(ADDR)
+	tcp.setblocking(1)
 	tcp.listen(10)
 	while True:
 		try:
