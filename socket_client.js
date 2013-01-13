@@ -8,7 +8,7 @@ socket_client.connect(65535,"localhost",function(){
 	fs.readFile('tmp/big.data',function(err,data){
 		socket_client.write(data);
 	});
-}
+});
 socket_client.on('close',function(){
 	console.log('close!');
 })
