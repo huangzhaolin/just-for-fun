@@ -27,13 +27,14 @@ def createServer():
 				recevieData=remoteData.recv(BUFSIZE)
 				print recevieData
 				if (not recevieData) or len(data)>10:
+					print recevieData
 					output.write(str(data))
 					data=[]
 					break
 				else:
 					data.append(recevieData)
 			output.close()
-			print 'it takes %s ending!'%((time()-startTime)%1000)
+			print 'it takes %s s ending!'%((time()-startTime)%1000)
 			remoteData.send('[%s]%s'%(ctime(),'close!'))
 		except KeyboardInterrupt:
 			tcp.close()
