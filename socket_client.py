@@ -31,6 +31,7 @@ def createClient():
 			data=tcp.recv(1024)
 			if not data:
 				break
+			print data
 		print 'ending send data:%s'%time()
 	except KeyboardInterrupt:
 		tcp.close()
