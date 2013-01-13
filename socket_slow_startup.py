@@ -26,7 +26,7 @@ def createServer():
 				if not data:
 					break
 				print data
-				tcp.send('%s'%('12332324'))
+				tcpAccept.send('[%s]%s'%(ctime(),'12332324'))
 				#tcp.close()
 		except Exception,e:
 			print traceback.format_exc()
