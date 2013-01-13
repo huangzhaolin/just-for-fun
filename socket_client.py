@@ -20,14 +20,14 @@ def createClient():
 		output=open("/tmp/big.data","r")
 		buffer=[]
 		count=0
-		index=1
 		for line in output:
 			buffer.append(line)
-			if len(buffer)==1000 or index==len(output):
+			if len(buffer)==1000:
 				print "it's %s time send"%count
 				tcp.send(line)
 				tcp.recv(1024)
-			index=index+1
+		tcp.send(line)
+		tcp.recv(1024)
 		print 'ending send data:%s'%time()
 	except KeyboardInterrupt:
 		tcp.close()
