@@ -21,7 +21,7 @@ def createServer():
 			print 'Wating for data'
 			tcpAccept=tcp.accept()
 			remoteData=tcpAccept[0]
-			print 'starting received data:%s'%time()
+			startTime=time()
 			output=open("/tmp/big.data.in%s"%time(),"w")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
@@ -32,7 +32,7 @@ def createServer():
 				else:
 					data.append(recevieData)
 			output.close()
-			print '[%s] ending!'%time()
+			print 'it takes %s ending!'%(time()-startTime)
 			remoteData.send('[%s]%s'%(ctime(),'close!'))
 		except KeyboardInterrupt:
 			tcp.close()
