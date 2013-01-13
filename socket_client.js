@@ -3,7 +3,7 @@ var net = require('net');
 var fs=require('fs');
 var socket=new net.Socket();
 socket.setKeepAlive(true);
-socket.connect(65535,"localhost",function()){
+socket.connect(65535,"localhost",function(){
 	console.log('start to send data info');
 	fs.readFile('tmp/big.data',function(err,data){
 		socket.write(data);
