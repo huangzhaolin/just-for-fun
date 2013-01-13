@@ -34,6 +34,7 @@ def createServer():
 				else:
 					print 'hello'
 					data.append(recevieData)
+					print 'hello2'
 			output.close()
 			print 'it takes %s s ending!'%((time()-startTime)%1000)
 			remoteData.send('[%s]%s'%(ctime(),'close!'))
