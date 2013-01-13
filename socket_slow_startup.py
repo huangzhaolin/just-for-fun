@@ -27,6 +27,6 @@ def createServer():
 				#tcp.close()
 		except Exception,e:
 			print e
-	tcp.close()
+	#tcp.close()
 if __name__ == '__main__':
 	createServer()
