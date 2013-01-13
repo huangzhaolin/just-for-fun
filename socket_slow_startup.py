@@ -3,7 +3,7 @@
 测试TCP的慢启动,内容为<HTTP权威指南> P89
 '''
 from socket import *
-from time import ctime
+from time import *
 import traceback
 
 def createServer():
@@ -21,8 +21,8 @@ def createServer():
 			print 'Wating for data'
 			tcpAccept=tcp.accept()
 			remoteData=tcpAccept[0]
-			print 'starting received data:%s'%ctime()
-			output=open("/tmp/big.data.in%s"%ctime(),"w")
+			print 'starting received data:%s'%time()
+			output=open("/tmp/big.data.in%s"%time(),"w")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
 				if not recevieData or len(data)>10:
@@ -32,7 +32,7 @@ def createServer():
 				else:
 					data.append(recevieData)
 			output.close()
-			print '[%s] ending!'%(ctime())
+			print '[%s] ending!'%time()
 			remoteData.send('[%s]%s'%(ctime(),'close!'))
 		except KeyboardInterrupt:
 			tcp.close()
