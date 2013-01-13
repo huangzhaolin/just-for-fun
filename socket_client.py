@@ -7,7 +7,7 @@ from time import *
 import traceback
 
 def createClient():
-	HOST=''
+	HOST='jolinhuang.com'
 	PORT=65535
 	BUFSIZE=1024
 	ADDR=(HOST,PORT)
