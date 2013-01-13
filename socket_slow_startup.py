@@ -14,15 +14,18 @@ def createServer():
 	tcp.bind(ADDR)
 	tcp.listen(1)
 	while True:
-		print 'Wating for data'
-		tcp,fromAddr=tcp.accept()
-		print 'get data from :%s'%fromAddr
-		while True:
-			data=tcp.recv(BUFSIZE)
-			if not data:
-				break
-			tcp.send('[%s]%s'%(ctime()),'recvied')
-			#tcp.close()
+		try:
+			print 'Wating for data'
+			tcp,fromAddr=tcp.accept()
+			print 'get data from :%s'%fromAddr
+			while True:
+				data=tcp.recv(BUFSIZE)
+				if not data:
+					break
+				tcp.send('[%s]%s'%(ctime()),'recvied')
+				#tcp.close()
+		except Exception,e:
+			print e
 	tcp.close()
 if __name__ == '__main__':
 	createServer()
