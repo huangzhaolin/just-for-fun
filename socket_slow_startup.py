@@ -13,7 +13,7 @@ def createServer():
 	ADDR=(HOST,PORT)
 	tcp=socket(AF_INET,SOCK_STREAM)
 	tcp.bind(ADDR)
-	tcp.settimeout(1000)
+	tcp.settimeout(1)
 	tcp.setblocking(1)
 	tcp.listen(10)
 	data=[]
@@ -26,7 +26,6 @@ def createServer():
 			output=open("/tmp/big.data.in%s"%time(),"w")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
-				print recevieData
 				if (not recevieData) or len(data)>10:
 					output.write(str(data))
 					data=[]
