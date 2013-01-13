@@ -18,7 +18,7 @@ def createServer():
 			print 'Wating for data'
 			tcpAccept=tcp.accept()
 			remoteData=tcpAccept[0]
-			print 'get data from :%s'%tcpAccept[1]
+			print 'get data from :',tcpAccept[1]
 			while True:
 				data=remoteData.recv(BUFSIZE)
 				if not data:
