@@ -26,6 +26,7 @@ def createClient():
 			if len(buffer)==1000 or index==len(output):
 				print "it's %s time send"%count
 				tcp.send(line)
+				tcp.recv(1024)
 			index=index+1
 		print 'ending send data:%s'%time()
 	except KeyboardInterrupt:
