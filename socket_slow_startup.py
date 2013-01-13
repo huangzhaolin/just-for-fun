@@ -30,10 +30,10 @@ def createServer():
 				output.close()
 				remoteData.send('[%s]%s'%(ctime(),'12332324'))
 				#tcp.close()
-		except Exception,e:
-			print traceback.format_exc()
 		except KeyboardInterrupt:
 			tcp.close()
+		except Exception,e:
+			print traceback.format_exc()
 	#tcp.close()
 if __name__ == '__main__':
 	createServer()
