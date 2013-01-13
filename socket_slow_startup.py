@@ -6,7 +6,7 @@ from socket import *
 from time import ctime
 
 def createServer():
-	HOST='localhost'
+	HOST=''
 	PORT=65535
 	BUFSIZE=1024
 	ADDR=(HOST,PORT)
