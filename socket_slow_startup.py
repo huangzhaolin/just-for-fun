@@ -4,6 +4,7 @@
 '''
 from socket import *
 from time import ctime
+import traceback
 
 def createServer():
 	HOST=''
@@ -26,7 +27,7 @@ def createServer():
 				tcp.send('[%s]%s'%(ctime(),'recvied'))
 				#tcp.close()
 		except Exception,e:
-			print e
+			print traceback.format_exc()
 	#tcp.close()
 if __name__ == '__main__':
 	createServer()
