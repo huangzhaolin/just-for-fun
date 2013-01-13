@@ -28,7 +28,7 @@ def createClient():
 #				tcp.recv(1024)
 		tcp.send(str(output.readlines(100000)))
 		while True:
-			data=tcp.recv(1024)
+			data=tcp.recv(BUFSIZE)
 			if not data:
 				break
 			print data
