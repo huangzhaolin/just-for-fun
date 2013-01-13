@@ -27,7 +27,10 @@ def createClient():
 #				tcp.send(line)
 #				tcp.recv(1024)
 		tcp.send(str(output.readlines(100000)))
-		tcp.recv(1024)
+		while True:
+			data=tcp.recv(1024)
+			if not data:
+				break
 		print 'ending send data:%s'%time()
 	except KeyboardInterrupt:
 		tcp.close()
