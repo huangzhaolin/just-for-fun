@@ -15,21 +15,24 @@ def createServer():
 	tcp.bind(ADDR)
 	tcp.setblocking(1)
 	tcp.listen(10)
+	data=[]
 	while True:
 		try:
 			print 'Wating for data'
 			tcpAccept=tcp.accept()
 			remoteData=tcpAccept[0]
-			print 'get data from :',tcpAccept[1]
+			print 'starting received data:%s'%ctime()
+			output=open("/tmp/big.data.in%s"%ctime(),"w")
 			while True:
-				data=remoteData.recv()
+				data.append(remoteData.recv(BUFSIZE))
 				if not data:
 					break
-				output=open("/tmp/big.data.in","w")
-				output.write(data)
-				output.close()
-				remoteData.send('[%s]%s'%(ctime(),'12332324'))
-				#tcp.close()
+				if len(data)>10240:
+					output.write(data)
+					data=None
+			output.close()
+			print '[%s] ending!'%(ctime())
+			remoteData.send('[%s]%s'%(ctime(),'close!'))
 		except KeyboardInterrupt:
 			tcp.close()
 			exit()
