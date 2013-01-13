@@ -28,4 +28,4 @@ def createClient():
 		print traceback.format_exc()
 	#tcp.close()
 if __name__ == '__main__':
-	createServer()
+	createClient()
