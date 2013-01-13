@@ -22,10 +22,12 @@ def createServer():
 			remoteData=tcpAccept[0]
 			print 'get data from :',tcpAccept[1]
 			while True:
-				data=remoteData.recv(BUFSIZE)
+				data=remoteData.recv()
 				if not data:
 					break
-				print data
+				output=open("/tmp/big.data.in","w")
+				output.write(data)
+				output.close()
 				remoteData.send('[%s]%s'%(ctime(),'12332324'))
 				#tcp.close()
 		except Exception,e:
