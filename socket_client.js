@@ -6,6 +6,7 @@ socket_client.setKeepAlive(true);
 socket_client.connect(65535,"localhost",function(){
 	console.log('start to send data info');
 	socket_client.write("data");
+	socket_client.destroy();
 	// fs.readFile('/tmp/big.data',function(err,data){
 	// 	socket_client.write(data);
 	// });
