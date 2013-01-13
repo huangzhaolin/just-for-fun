@@ -23,7 +23,7 @@ def createServer():
 				data=remoteData.recv(BUFSIZE)
 				if not data:
 					break
-				tcp.send('[%s]%s'%(ctime()),'recvied')
+				tcp.send('[%s]%s'%(ctime(),'recvied')
 				#tcp.close()
 		except Exception,e:
 			print e
