@@ -16,8 +16,8 @@ def createServer():
 	while True:
 		try:
 			print 'Wating for data'
-			tcp,fromAddr=tcp.accept()
-			print 'get data from :%s'%fromAddr
+			tcp=tcp.accept()
+			#print 'get data from :%s'%fromAddr
 			while True:
 				data=tcp.recv(BUFSIZE)
 				if not data:
