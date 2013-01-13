@@ -26,7 +26,7 @@ def createClient():
 #				print "it's %s time send"%count
 #				tcp.send(line)
 #				tcp.recv(1024)
-		tcp.send(output.readlines(100000))
+		tcp.send(str(output.readlines(100000)))
 		tcp.recv(1024)
 		print 'ending send data:%s'%time()
 	except KeyboardInterrupt:
