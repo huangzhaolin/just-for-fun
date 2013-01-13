@@ -5,13 +5,13 @@ var socket_client=new net.Socket();
 socket_client.setKeepAlive(true);
 socket_client.connect(65535,"localhost",function(){
 	console.log('start to send data info');
-	socket_client.write("data");
-	// fs.readFile('/tmp/big.data',function(err,data){
-	// 	socket_client.write(data);
-	// });
+	//socket_client.write("data");
+	 fs.readFile('/tmp/big.data',function(err,data){
+	 	socket_client.write(data);
+	 });
 });
 socket_client.on('data',function(data){
-	console.log(data);
+	console.log(data.toString());
 	socket_client.destroy();
 })
 socket_client.on('close',function(){
