@@ -18,9 +18,10 @@ def createClient():
 		try:
 			print 'Wating for data'
 			print 'starting send data:%s'%time()
-			output=open("/tmp/big.data.in%s"%time(),"w")
+			output=open("/tmp/big.data","r")
 			for line in output:
 				tcp.send(line)
+			print 'ending send data:%s'%time()
 		except KeyboardInterrupt:
 			tcp.close()
 			exit()
