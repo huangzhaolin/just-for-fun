@@ -7,7 +7,7 @@ from time import ctime
 
 def createServer():
 	HOST=''
-	PORT=65535
+	PORT=8888
 	BUFSIZE=1024
 	ADDR=(HOST,PORT)
 	tcp=socket(AF_INET,SOCK_STREAM)
