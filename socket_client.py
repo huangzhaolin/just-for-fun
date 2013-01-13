@@ -19,10 +19,11 @@ def createClient():
 		print 'starting send data:%s'%time()
 		output=open("/tmp/big.data","r")
 		count=0
-		for line in output:
-			count=count+1
-			print "it's %s time send"%count
-			tcp.send(line)
+		tcp.send(output.read())
+#		for line in output.readlines():
+#			count=count+1
+#			print "it's %s time send"%count
+#			tcp.send(line)
 		print 'ending send data:%s'%time()
 	except KeyboardInterrupt:
 		tcp.close()
