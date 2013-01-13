@@ -32,6 +32,7 @@ def createServer():
 				#tcp.close()
 		except KeyboardInterrupt:
 			tcp.close()
+			exit()
 		except Exception,e:
 			print traceback.format_exc()
 	#tcp.close()
