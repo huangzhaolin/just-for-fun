@@ -32,11 +32,10 @@ def createServer():
 					break
 				else:
 					data.append(recevieData)
+				print 'send back'
 				remoteData.send('[%s]%s'%(ctime(),'close!'))
 			output.close()
 			print 'it takes %ss ending!'%((time()-startTime)%1000)
-			remoteData.send('[%s]%s'%(ctime(),'close!'))
-			print 'zhixing1212121'
 		except KeyboardInterrupt:
 			tcp.close()
 			exit()
