@@ -24,16 +24,16 @@ def createServer():
 			remoteData=tcpAccept[0]
 			startTime=time()
 			print 'connect by ',tcpAccept[1]
-			output=open("/tmp/big.data.in%s"%time(),"w")
+			output=open("/tmp/big.data.in"%time(),"w+")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
 				if (not recevieData) or len(data)>10:
 					output.write(str(data))
 					data=[]
+					remoteData.close()
 					break
 				else:
 					data.append(recevieData)
-					remoteData.close()
 				#print 'send back'
 				#remoteData.send('[%s]%s'%(ctime(),'close!'))
 			print 'it takes %ss ending!'%((time()-startTime)%1000)
