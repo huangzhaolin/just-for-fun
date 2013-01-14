@@ -23,7 +23,7 @@ def createServer():
 			tcpAccept=tcp.accept()
 			remoteData=tcpAccept[0]
 			startTime=time()
-			print 'connect by ',tcpAccept[1]
+			print 'recevieData from ',tcpAccept[1]
 			output=open("/tmp/big.data.in","w+")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
@@ -38,7 +38,7 @@ def createServer():
 			output.close()
 				#print 'send back'
 				#remoteData.send('[%s]%s'%(ctime(),'close!'))
-			print 'it takes %ss ending!'%((time()-startTime)%1000)
+			print 'it takes %ssseconds !'%((time()-startTime)%1000)
 		except KeyboardInterrupt:
 			tcp.close()
 			exit()

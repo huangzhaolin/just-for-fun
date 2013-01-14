@@ -16,7 +16,7 @@ def createClient():
 	data=[]
 	try:
 		print 'Wating for data'
-		print 'starting send data:%s'%time()
+		startTime=time()
 		output=open("/tmp/big.data","r")
 		buffer=[]
 		count=0
@@ -25,7 +25,7 @@ def createClient():
 			if not data:
 				break
 			tcp.send(data)
-		print 'ending  send data:%s'%time()
+		print 'it tabkes %sseconds'%(time()-startTime)/1000
 		output.close()
 	except KeyboardInterrupt:
 		tcp.close()
