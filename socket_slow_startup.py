@@ -27,8 +27,7 @@ def createServer():
 			output=open("/tmp/big.data.in","w+")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
-				print len(recevieData)
-				if (not recevieData) or len(recevieData)<81:
+				if (not recevieData) or len(recevieData)<1024:
 					break
 				if  len(data)>10:
 					output.write(str(data))
