@@ -25,7 +25,7 @@ def createClient():
 			if not data:
 				break
 			tcp.send(data)
-		print 'it tabkes %sseconds'%((time()-startTime)/1000)
+		print 'it tabkes %sseconds'%((time()-startTime))
 		output.close()
 	except KeyboardInterrupt:
 		tcp.close()
