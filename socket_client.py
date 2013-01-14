@@ -26,6 +26,7 @@ def createClient():
 				break
 			tcp.send(data)
 		print 'ending  send data:%s'%time()
+		data.close()
 	except KeyboardInterrupt:
 		tcp.close()
 		exit()
