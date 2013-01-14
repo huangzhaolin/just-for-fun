@@ -39,7 +39,7 @@ def createServer():
 			output.close()
 				#print 'send back'
 				#remoteData.send('[%s]%s'%(ctime(),'close!'))
-			print 'it takes %ssseconds !'%((time()-startTime)%1000)
+			print 'it takes %ssseconds !'%((time()-startTime))
 		except KeyboardInterrupt:
 			tcp.close()
 			exit()
