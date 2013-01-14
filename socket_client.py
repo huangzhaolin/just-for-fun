@@ -24,7 +24,7 @@ def createClient():
 			data=output.read(BUFSIZE)
 			if not data:
 				break
-			tcp.send(line)
+			tcp.send(data)
 		print 'ending  send data:%s'%time()
 		tcp.close()
 	except KeyboardInterrupt:
