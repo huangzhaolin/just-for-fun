@@ -28,18 +28,9 @@ def createClient():
 				print "it's %s time send "%count
 				tcp.send(line)
 				buffer=[]
-				while True:
-					data=tcp.recv(BUFSIZE)
-					if not data:
-						break
-						print data
 		tcp.send(line)
-		while True:
-			data=tcp.recv(BUFSIZE)
-			if not data:
-				break
-			print data
 		print 'ending  send data:%s'%time()
+		tcp.close()
 	except KeyboardInterrupt:
 		tcp.close()
 		exit()
