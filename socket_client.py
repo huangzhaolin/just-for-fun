@@ -25,7 +25,7 @@ def createClient():
 			buffer.append(line)
 			if len(buffer)==1000:
 				count=count+1
-				print "it's %s time send"%count
+				print "it's %s time send "%count
 				tcp.send(line)
 				buffer=[]
 				while True:
