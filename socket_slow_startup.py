@@ -29,10 +29,10 @@ def createServer():
 				recevieData=remoteData.recv(BUFSIZE)
 				if (not recevieData) or len(recevieData)<1024:
 					data.append(recevieData)
-					output.write(str(data))
+					output.write('.'.join(data))
 					break
 				if  len(data)>10:
-					output.write(str(data))
+					output.write('.'.join(data))
 					data=[]
 				else:
 					data.append(recevieData)
