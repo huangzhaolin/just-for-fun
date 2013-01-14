@@ -27,11 +27,13 @@ def createServer():
 			output=open("/tmp/big.data.in","w+")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
-				if (not recevieData) or len(data)>10:
+				print len(recevieData)
+				if (not recevieData) or len(recevieData)<81:
+					break
+				if  len(data)>10:
 					output.write(str(data))
 					data=[]
 					remoteData.send('[%s]%s'%(ctime(),'close!'))
-					break
 				else:
 					data.append(recevieData)
 				#print 'send back'
