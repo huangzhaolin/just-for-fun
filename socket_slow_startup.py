@@ -24,7 +24,7 @@ def createServer():
 			remoteData=tcpAccept[0]
 			startTime=time()
 			print 'connect by ',tcpAccept[1]
-			output=open("/tmp/big.data.in"%time(),"w+")
+			output=open("/tmp/big.data.in","w+")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
 				if (not recevieData) or len(data)>10:
