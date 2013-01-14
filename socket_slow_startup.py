@@ -23,6 +23,7 @@ def createServer():
 			tcpAccept=tcp.accept()
 			remoteData=tcpAccept[0]
 			startTime=time()
+			print 'connect by ',tcpAccept[1]
 			output=open("/tmp/big.data.in%s"%time(),"w")
 			while True:
 				recevieData=remoteData.recv(BUFSIZE)
